@@ -14,4 +14,4 @@ Click the "Check" button to determine if it is a palindrome
 The app will display a message indicating whether the input is a palindrome or not
 
 # Live Link 
- https://abmercy035.github.io/Pelindrome-word-checker/
+ https://abmercy035.github.io/Palindrome-word-checker/
