@@ -1,83 +1,91 @@
 * {
   padding: 0;
   margin: 0;
-  outline:none;
+  outline: none;
   box-sizing: border-box;
 }
 
-header {
-  text-align: center;
+body {
+  background-color: rgb(2, 40, 71);
+  display: flex;
+  min-height: 100vh;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-header img {
-  margin-top: 20px;
-  border-radius: 140px;
-} 
+@media screen and (max-width : 600px) {
+  body {
+    background-color: rgb(2, 40, 71);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
 
-h2, #cont{
-  margin:  30px 0 ;
+h2,
+#cont {
+  margin: 30px 0;
   text-align: center;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #inp,
 #outp {
-  height: 30px;
+  height: 50px;
+  width: 70%;
+  max-width: 400px;
   margin: 20px 0;
-  border: solid 3px #0F1EC8;
+  border: solid 3px #b5b5b5;
+  border-radius: 20px;
   font-size: 18px;
   text-align: center;
+  color: white;
+  background-color: rgb(2, 40, 71);
+}
+
+:is(input)::placeholder {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: white;
 }
 
 button {
-  height: 50px;
-  width: 50px;
+  height: 80px;
   background-color: inherit;
-  font-size: 35px;
-  font-weight: 700;
-  border-radius: 60px;
-  border:1px red dashed;
+  font-size: 55px;
+  font-weight: 900;
+  border: 0;
 }
-button:hover{
-    background-color: red;
-    border:1px #000 dashed;
-}
-#checked {
-  height: 40px;
-  width: 100%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 15px;
-  font-weight: 800;
+
+button:hover {
+  color: red;
 }
 
 .run {
   color: #fff;
-  animation: run 50ms infinite;
+  animation: run 300ms alternate-reverse;
 }
 
 @keyframes run {
 
   100%,
   0% {
-    margin-left: 20px;
-    margin-right: -20px;
+    transform: translateX(2%);
   }
 
   25% {
-    margin-right: -10px;
-    margin-left: 10px;
+    transform: translateX(-2%);
   }
 
   50% {
-    margin-right: 0px;
-    margin-left: 0px;
+    transform: translateX(-4%);
   }
 
   75% {
-    margin-right: 10px;
-    margin-left: -10px;
+    transform: translateX(4%);
   }
-}
-
-#words {
-  margin: auto 78px;
 }

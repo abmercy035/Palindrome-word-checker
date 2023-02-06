@@ -9,54 +9,59 @@
 </head>
 
 <body>
-  
-  
+  <header>
     <h2>IS A PALINDROME?</h2>
+  </header>
   <div id="cont">
     <div id="checked">
-     Click Check
+      Enter word you want to check.
     </div>
     <div id="inputBox">
-      <input type="text" size="30" id="inp"> <br>
-      <button onclick="check()">↑↓</button>
-      <br> <input type="text" size="30" id="outp">
+      <input type="text" size="30" id="inp" placeholder="Enter word here"> <br>
+      <button onclick="isPelindrome()">↑↓</button>
+      <br> <input type="text" size="30" id="outp" placeholder="Result will be show here">
     </div>
   </div>
-  
-  
+
   <script type="text/javascript" charset="utf-8">
-  
-  
-    const inp = document.querySelector('#inp');
-    const outp = document.querySelector('#outp');
-    const btn = document.querySelector('button');
-    const body = document.querySelector('body');
-    const cont = document.querySelector('cont');
-    inp.addEventListener('input', (e) => {
-      inp.value = e.target.value.toUpperCase();
-    })
-    var check = () => {
-      let wBox = [], word = inp.value, res = '';
-      if (word.length < 2) return;
-      else {
-        for (var i = 0; i < word.length; ++i) {
-          wBox.push(word[i])
-        }
-      }
-      outp.value = '';
-      for (var i = 0; i < word.length; ++i) {
-        res += wBox.pop();
-        outp.value = res.toUpperCase()
-      }
-      if (inp.value === outp.value) {
-  checked.textContent = word + ' is Palindrome';
-      } else {
-  checked.textContent = word + ' is not Palindrome';
-      }
+
+
+    const inp = document.getElementById( 'inp' );
+    const checked = document.querySelector( '#checked' );
+    const outp = document.querySelector( '#outp' );
+    const btn = document.querySelector( 'button' );
+    const body = document.querySelector( 'body' );
+    const cont = document.querySelector( 'cont' );
+    // on input convert input value to uppercase;
+    inp.addEventListener( 'input', ( e ) => inp.value = e.target.value.toUpperCase() )
+    // adds the annimation class to the checked element and change text to is not pelindrome
+    const notPelendrome = ( word ) =>
+    {
+      checked.textContent = word + ' is not Palindrome';
+      checked.style.color = "red";
+      checked.classList.add( "run" )
+      setTimeout( () => checked.classList.remove( "run" ), 100 )
     }
-    
-    
-    
+
+    // function for Pelindrome checking 
+    var isPelindrome = () =>
+    {
+      let wBox = [], word = inp.value, res = '';
+      // converting input word To Array
+      for ( var i = 0; i < word.length; ++i )
+        wBox.push( word[ i ] )
+      if ( word.length < 2 ) return;
+      else
+        // reverse word inputed and compare with the initial word
+        for ( var i = 0; i < word.length; ++i )
+          res += wBox.pop();
+      outp.value = res
+
+      if ( inp.value === outp.value )
+        checked.textContent = word + ' is Palindrome';
+      else
+        notPelendrome( word )
+    }
   </script>
 </body>
 
