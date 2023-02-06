@@ -18,7 +18,7 @@
     </div>
     <div id="inputBox">
       <input type="text" size="30" id="inp" placeholder="Enter word here"> <br>
-      <button onclick="isPelindrome()">↑↓</button>
+      <button onclick="isPalindrome()">↑↓</button>
       <br> <input type="text" size="30" id="outp" placeholder="Result will be show here">
     </div>
   </div>
@@ -35,7 +35,7 @@
     // on input convert input value to uppercase;
     inp.addEventListener( 'input', ( e ) => inp.value = e.target.value.toUpperCase() )
     // adds the annimation class to the checked element and change text to is not pelindrome
-    const notPelendrome = ( word ) =>
+    const notPalendrome = ( word ) =>
     {
       checked.textContent = word + ' is not Palindrome';
       checked.style.color = "red";
@@ -44,7 +44,7 @@
     }
 
     // function for Pelindrome checking 
-    var isPelindrome = () =>
+    var isPalindrome = () =>
     {
       let wBox = [], word = inp.value, res = '';
       // converting input word To Array
@@ -60,7 +60,7 @@
       if ( inp.value === outp.value )
         checked.textContent = word + ' is Palindrome';
       else
-        notPelendrome( word )
+        notPalendrome( word )
     }
   </script>
 </body>
